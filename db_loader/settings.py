@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # rest framework
+    'rest_framework',
     # My apps
     "ioc_feed_consumer.apps.IocFeedConsumerConfig"
 ]

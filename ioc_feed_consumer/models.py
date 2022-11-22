@@ -1,5 +1,7 @@
 from django.db import models
 
+
+# Enum for our Indicator types
 class IndicatorType(models.TextChoices):
     IP = "IP"
     Hash = "Hash"
@@ -7,12 +9,12 @@ class IndicatorType(models.TextChoices):
     URL = "URL"
     File = "File"
 
-# Create your models here.
+# Data model for our IOC
 class Ioc(models.Model):
     ioc = models.TextField(primary_key=True)
     type = models.TextField(choices=IndicatorType.choices)
     sources = models.JSONField()
-    frequency = models.IntegerField()
+    frequency = models.IntegerField(default=1)
     created_timestamp = models.DateTimeField(auto_now_add=True)
     updated_timestamp = models.DateTimeField(auto_now=True)
     location = models.JSONField(null=True)

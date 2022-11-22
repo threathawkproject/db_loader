@@ -9,7 +9,7 @@ class KafkaConsumerWrapper(object):
         raise RuntimeError("Use instance() instead")
 
     @classmethod
-    def json_deserializer(self, data):
+    def json_deserializer(cls, data):
         return loads(data)
 
     @classmethod
