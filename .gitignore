@@ -1,1 +1,8 @@
 /ioc_feed_consumer/migrations/0001_initial.py
+
+# Pyhon byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+
+# VSCode
+.vscode
