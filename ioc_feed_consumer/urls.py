@@ -13,6 +13,7 @@ urlpatterns = [
     path('ioc_feeds_consumer/sources/<str:source>/', SourceIocViewSet.as_view({
         "get": "get"
     })),
+    # HERES THE DATE ONE
     path('ioc_feeds_consumer/date', DateIocViewSet.as_view({
         "get": "get"
     })),

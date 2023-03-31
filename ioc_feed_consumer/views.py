@@ -9,6 +9,8 @@ from rest_framework.response import Response
 
 from ioc_feed_consumer.models import Ioc, IndicatorType
 from ioc_feed_consumer.serializers import IoCSerializer
+from ioc_feed_consumer.pagination import IoCViewSetPagination
+
 
 import datetime
 
@@ -18,9 +20,10 @@ class IocViewSet(viewsets.ViewSet):
     # get all IOCS!
     def list(self, request):
         iocs = Ioc.objects.all()
-        print(iocs)
-        serializer = IoCSerializer(iocs, many=True)
-        return Response(serializer.data)
+        paginator = IoCViewSetPagination()
+        paginated_iocs = paginator.paginate_queryset(iocs, request)
+        serializer = IoCSerializer(paginated_iocs, many=True)
+        return paginator.get_paginated_response(serializer.data)
 
 
 # This view gets all the iocs from a specifec source!
